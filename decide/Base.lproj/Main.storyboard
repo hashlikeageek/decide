@@ -104,7 +104,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="return"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="vbp-nc-UPN"/>
+                                    <action selector="goBack:" destination="qXX-B0-FMW" eventType="touchUpInside" id="ipx-u9-7kY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Sign Up" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZp-36-bpX">
@@ -184,16 +184,17 @@
                         <outlet property="em" destination="FZ7-Bk-PUY" id="8It-3L-R49"/>
                         <outlet property="error" destination="RLC-Zo-qbN" id="D5Z-pC-T0s"/>
                         <outlet property="pass" destination="GtA-VI-Zk3" id="dsG-Fr-ePb"/>
+                        <segue destination="56Q-RU-yvY" kind="show" identifier="signIn" id="UyP-XA-752"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7T8-Od-wmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="963.75" y="-184.85915492957747"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="w2Q-AZ-6HD">
             <objects>
-                <viewController id="56Q-RU-yvY" sceneMemberID="viewController">
+                <viewController id="56Q-RU-yvY" customClass="signInViewController" customModule="decide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="K5k-qC-kb1"/>
                         <viewControllerLayoutGuide type="bottom" id="dIF-ie-iCS"/>
@@ -212,7 +213,7 @@
                                 <rect key="frame" x="16" y="28" width="12" height="22"/>
                                 <state key="normal" image="return"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Wxj-vX-vP6"/>
+                                    <action selector="goBackHome:" destination="56Q-RU-yvY" eventType="touchUpInside" id="NHg-Ns-lek"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRs-ea-2q9">
@@ -247,6 +248,9 @@
                                 <state key="normal" title="Sign In" backgroundImage="Button_BG">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="signIn:" destination="56Q-RU-yvY" eventType="touchUpInside" id="XLF-DB-6Nu"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hZv-1U-yg6">
                                 <rect key="frame" x="129.5" y="350" width="123" height="30"/>
@@ -295,15 +299,21 @@
                             <constraint firstItem="aM4-vb-ud2" firstAttribute="centerX" secondItem="orE-Az-dDu" secondAttribute="centerX" id="zOs-jL-h1w"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="ema" destination="aM4-vb-ud2" id="seU-dB-Zam"/>
+                        <outlet property="error" destination="YzK-za-M1o" id="O3O-XW-o3L"/>
+                        <outlet property="pass" destination="WaI-e1-eU6" id="uCc-nd-Wk3"/>
+                        <segue destination="Wqv-fd-eVc" kind="show" identifier="signInHome" id="Pog-Dj-AIf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oIt-yz-KdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="965.60000000000002" y="578.86056971514245"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="sHy-Ai-aH4">
             <objects>
-                <viewController id="Wqv-fd-eVc" sceneMemberID="viewController">
+                <viewController id="Wqv-fd-eVc" customClass="homeViewController" customModule="decide" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5TO-UZ-Vhf"/>
                         <viewControllerLayoutGuide type="bottom" id="Fjp-VL-tO8"/>
@@ -341,6 +351,6 @@
         <image name="welcomeScreen " width="375" height="620"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vbp-nc-UPN"/>
+        <segue reference="UyP-XA-752"/>
     </inferredMetricsTieBreakers>
 </document>

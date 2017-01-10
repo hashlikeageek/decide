@@ -20,6 +20,7 @@
 		C50491581E24BEBD0040AA64 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C50491571E24BEBD0040AA64 /* GoogleService-Info.plist */; };
 		C504915A1E24CB4C0040AA64 /* signInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50491591E24CB4C0040AA64 /* signInViewController.swift */; };
 		C504915C1E24CB5A0040AA64 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C504915B1E24CB5A0040AA64 /* signUpViewController.swift */; };
+		C504915E1E24DC5D0040AA64 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C504915D1E24DC5D0040AA64 /* homeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		C50491571E24BEBD0040AA64 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C50491591E24CB4C0040AA64 /* signInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signInViewController.swift; sourceTree = "<group>"; };
 		C504915B1E24CB5A0040AA64 /* signUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
+		C504915D1E24DC5D0040AA64 /* homeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
 		CAEFAD86548F94FE4AF4C916 /* Pods_decideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_decideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -142,6 +144,7 @@
 				C50491571E24BEBD0040AA64 /* GoogleService-Info.plist */,
 				C50491591E24CB4C0040AA64 /* signInViewController.swift */,
 				C504915B1E24CB5A0040AA64 /* signUpViewController.swift */,
+				C504915D1E24DC5D0040AA64 /* homeViewController.swift */,
 			);
 			path = decide;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				C50491281E2334380040AA64 /* ViewController.swift in Sources */,
 				C504915A1E24CB4C0040AA64 /* signInViewController.swift in Sources */,
 				C504915C1E24CB5A0040AA64 /* signUpViewController.swift in Sources */,
+				C504915E1E24DC5D0040AA64 /* homeViewController.swift in Sources */,
 				C50491261E2334380040AA64 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

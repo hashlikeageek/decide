@@ -25,6 +25,10 @@ class signUpViewController : UIViewController,UITextFieldDelegate
     }
     
     
+    @IBAction func goBack(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func signUp(_ sender: Any) {
         
         let email = self.em.text
@@ -36,6 +40,8 @@ class signUpViewController : UIViewController,UITextFieldDelegate
                 print("yahoo done")
                 self.error.setTitle("Sign Up Successful", for: .normal)
                 self.error.isHidden = false
+                
+                self.performSegue(withIdentifier: "signIn", sender: self)
                 
             })
             }
