@@ -7,6 +7,8 @@ target 'decide' do
 
 pod 'Firebase/Core'
 pod 'Firebase/Auth'
+pod 'Firebase/Database'
+
   # Pods for decide
 
   target 'decideTests' do
