@@ -23,6 +23,7 @@ class BucketTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        FIRDatabase.database().persistenceEnabled = true
        
         navigationItem.leftBarButtonItem = editButtonItem
         

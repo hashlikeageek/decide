@@ -10,6 +10,7 @@ import FirebaseAnalytics
 import FirebaseAuth
 import FirebaseStorage
 import UIKit
+import FirebaseDatabase
 
 class AccountViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -119,6 +120,9 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        FIRDatabase.database().persistenceEnabled = true
+
+
         FIRAuth.auth()?.addStateDidChangeListener({(auth, user) in
             
             if user == nil {

@@ -11,6 +11,7 @@ import FirebaseDatabase
 
 class FirebaseSnapshotsController {
     
+    
     var handlers: [() -> Void] = []
     var snapshots: [FIRDataSnapshot] = []
     

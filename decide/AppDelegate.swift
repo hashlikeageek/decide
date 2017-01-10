@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.statusBarStyle = .lightContent
         FIRApp.configure()
        
+        FIRDatabase.database().persistenceEnabled = true
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if user != nil {
