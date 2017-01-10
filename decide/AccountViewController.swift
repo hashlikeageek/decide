@@ -21,7 +21,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     }
     
     @IBAction func signOutButtonTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Log Out of Sample App?", message: nil, preferredStyle: .alert)
+        let alert = UIAlertController(title: "Log Out of decide?", message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         alert.addAction(UIAlertAction(title: "Log Out", style: .default, handler: {(action) in
             do {

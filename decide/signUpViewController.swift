@@ -34,6 +34,7 @@ class signUpViewController : UIViewController,UITextFieldDelegate
         let email = self.em.text
         let passowrd = self.pass.text
         
+         if Reachability.sharedInstance().isInternetAvailable() {
         if email != "" && passowrd != ""
         {
             FIRAuth.auth()?.createUser(withEmail: email!, password: passowrd!, completion: { (UID, errors) in
@@ -51,6 +52,14 @@ class signUpViewController : UIViewController,UITextFieldDelegate
             error.setTitle("Invalid Entries", for: .normal)
             error.isHidden = false
         }
+         }
+         else
+         {
+            
+            error.setTitle("No Internet Access", for: .normal)
+            error.isHidden = false
+        }
+
         
     }
     

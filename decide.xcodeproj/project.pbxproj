@@ -26,6 +26,7 @@
 		C50491671E2553190040AA64 /* BucketIdeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50491631E2553180040AA64 /* BucketIdeaTableViewCell.swift */; };
 		C50491681E2553190040AA64 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50491641E2553180040AA64 /* Extensions.swift */; };
 		C504916A1E2553290040AA64 /* FirebaseSnapshotsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50491691E2553290040AA64 /* FirebaseSnapshotsController.swift */; };
+		C504916F1E25654D0040AA64 /* reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C504916E1E25654D0040AA64 /* reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		C50491631E2553180040AA64 /* BucketIdeaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketIdeaTableViewCell.swift; sourceTree = "<group>"; };
 		C50491641E2553180040AA64 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C50491691E2553290040AA64 /* FirebaseSnapshotsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSnapshotsController.swift; sourceTree = "<group>"; };
+		C504916E1E25654D0040AA64 /* reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = reachability.swift; sourceTree = "<group>"; };
 		CAEFAD86548F94FE4AF4C916 /* Pods_decideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_decideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -123,6 +125,7 @@
 		C50491191E2334370040AA64 = {
 			isa = PBXGroup;
 			children = (
+				C504916E1E25654D0040AA64 /* reachability.swift */,
 				C50491241E2334380040AA64 /* decide */,
 				C50491391E2334380040AA64 /* decideTests */,
 				C50491441E2334390040AA64 /* decideUITests */,
@@ -509,6 +512,7 @@
 				C50491651E2553190040AA64 /* AccountViewController.swift in Sources */,
 				C50491671E2553190040AA64 /* BucketIdeaTableViewCell.swift in Sources */,
 				C504915C1E24CB5A0040AA64 /* signUpViewController.swift in Sources */,
+				C504916F1E25654D0040AA64 /* reachability.swift in Sources */,
 				C504915E1E24DC5D0040AA64 /* homeViewController.swift in Sources */,
 				C50491261E2334380040AA64 /* AppDelegate.swift in Sources */,
 			);
