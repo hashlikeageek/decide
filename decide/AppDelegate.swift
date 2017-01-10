@@ -9,18 +9,23 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    
+    
+    
     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.statusBarStyle = .lightContent
         FIRApp.configure()
-   
+       
+        FIRDatabase.database().persistenceEnabled = true
         
         FIRAuth.auth()?.addStateDidChangeListener { auth, user in
             if user != nil {
