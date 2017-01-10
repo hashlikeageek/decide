@@ -8,16 +8,29 @@
 
 import UIKit
 import Firebase
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
+    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIApplication.shared.statusBarStyle = .lightContent
         FIRApp.configure()
+   
+        
+        FIRAuth.auth()?.addStateDidChangeListener { auth, user in
+            if user != nil {
+                self.window?.rootViewController = self.storyboard.instantiateViewController(withIdentifier: "home")
+                
+            } else {
+               self.window?.rootViewController = self.storyboard.instantiateViewController(withIdentifier: "welcome")
+            }
+        }
+        
         // Override point for customization after application launch.
         return true
     }
