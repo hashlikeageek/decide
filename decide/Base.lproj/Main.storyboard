@@ -427,7 +427,9 @@
                             <constraint firstItem="ZSY-qZ-Gys" firstAttribute="top" secondItem="Rmn-AT-OCr" secondAttribute="bottom" constant="22" id="yYo-Jc-F08"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="QbZ-Go-v0q"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="QbZ-Go-v0q">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="activityIndicator" destination="AeO-xp-5xI" id="ZzA-zy-E7C"/>
                         <outlet property="nameLabel" destination="ZSY-qZ-Gys" id="g9y-2M-f9w"/>
