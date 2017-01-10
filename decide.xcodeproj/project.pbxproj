@@ -21,6 +21,11 @@
 		C504915A1E24CB4C0040AA64 /* signInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50491591E24CB4C0040AA64 /* signInViewController.swift */; };
 		C504915C1E24CB5A0040AA64 /* signUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C504915B1E24CB5A0040AA64 /* signUpViewController.swift */; };
 		C504915E1E24DC5D0040AA64 /* homeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C504915D1E24DC5D0040AA64 /* homeViewController.swift */; };
+		C50491651E2553190040AA64 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50491611E2553180040AA64 /* AccountViewController.swift */; };
+		C50491661E2553190040AA64 /* BucketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50491621E2553180040AA64 /* BucketTableViewController.swift */; };
+		C50491671E2553190040AA64 /* BucketIdeaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50491631E2553180040AA64 /* BucketIdeaTableViewCell.swift */; };
+		C50491681E2553190040AA64 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50491641E2553180040AA64 /* Extensions.swift */; };
+		C504916A1E2553290040AA64 /* FirebaseSnapshotsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C50491691E2553290040AA64 /* FirebaseSnapshotsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +71,11 @@
 		C50491591E24CB4C0040AA64 /* signInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signInViewController.swift; sourceTree = "<group>"; };
 		C504915B1E24CB5A0040AA64 /* signUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUpViewController.swift; sourceTree = "<group>"; };
 		C504915D1E24DC5D0040AA64 /* homeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = homeViewController.swift; sourceTree = "<group>"; };
+		C50491611E2553180040AA64 /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		C50491621E2553180040AA64 /* BucketTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketTableViewController.swift; sourceTree = "<group>"; };
+		C50491631E2553180040AA64 /* BucketIdeaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BucketIdeaTableViewCell.swift; sourceTree = "<group>"; };
+		C50491641E2553180040AA64 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C50491691E2553290040AA64 /* FirebaseSnapshotsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseSnapshotsController.swift; sourceTree = "<group>"; };
 		CAEFAD86548F94FE4AF4C916 /* Pods_decideTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_decideTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,16 +145,15 @@
 		C50491241E2334380040AA64 /* decide */ = {
 			isa = PBXGroup;
 			children = (
+				C504916D1E255C800040AA64 /* Controller */,
+				C504916C1E255C780040AA64 /* View */,
+				C504916B1E255C6D0040AA64 /* Model */,
 				C50491251E2334380040AA64 /* AppDelegate.swift */,
-				C50491271E2334380040AA64 /* ViewController.swift */,
 				C50491291E2334380040AA64 /* Main.storyboard */,
 				C504912C1E2334380040AA64 /* Assets.xcassets */,
 				C504912E1E2334380040AA64 /* LaunchScreen.storyboard */,
 				C50491311E2334380040AA64 /* Info.plist */,
 				C50491571E24BEBD0040AA64 /* GoogleService-Info.plist */,
-				C50491591E24CB4C0040AA64 /* signInViewController.swift */,
-				C504915B1E24CB5A0040AA64 /* signUpViewController.swift */,
-				C504915D1E24DC5D0040AA64 /* homeViewController.swift */,
 			);
 			path = decide;
 			sourceTree = "<group>";
@@ -165,6 +174,36 @@
 				C50491471E2334390040AA64 /* Info.plist */,
 			);
 			path = decideUITests;
+			sourceTree = "<group>";
+		};
+		C504916B1E255C6D0040AA64 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C50491641E2553180040AA64 /* Extensions.swift */,
+				C50491691E2553290040AA64 /* FirebaseSnapshotsController.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		C504916C1E255C780040AA64 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C50491631E2553180040AA64 /* BucketIdeaTableViewCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		C504916D1E255C800040AA64 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C50491271E2334380040AA64 /* ViewController.swift */,
+				C50491591E24CB4C0040AA64 /* signInViewController.swift */,
+				C504915D1E24DC5D0040AA64 /* homeViewController.swift */,
+				C50491611E2553180040AA64 /* AccountViewController.swift */,
+				C504915B1E24CB5A0040AA64 /* signUpViewController.swift */,
+				C50491621E2553180040AA64 /* BucketTableViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		F6C1B740372BE3D304561502 /* Frameworks */ = {
@@ -462,8 +501,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C50491661E2553190040AA64 /* BucketTableViewController.swift in Sources */,
+				C50491681E2553190040AA64 /* Extensions.swift in Sources */,
+				C504916A1E2553290040AA64 /* FirebaseSnapshotsController.swift in Sources */,
 				C50491281E2334380040AA64 /* ViewController.swift in Sources */,
 				C504915A1E24CB4C0040AA64 /* signInViewController.swift in Sources */,
+				C50491651E2553190040AA64 /* AccountViewController.swift in Sources */,
+				C50491671E2553190040AA64 /* BucketIdeaTableViewCell.swift in Sources */,
 				C504915C1E24CB5A0040AA64 /* signUpViewController.swift in Sources */,
 				C504915E1E24DC5D0040AA64 /* homeViewController.swift in Sources */,
 				C50491261E2334380040AA64 /* AppDelegate.swift in Sources */,
