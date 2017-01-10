@@ -1,0 +1,1 @@
+decide is an application that you can use to make a bucket list ( The application uses firebase as backend for user Authentications and all other activities ) The user is supposed to sign up or log in to the application and add new task.All the data are Persistent using Firebase. The application can be complied and ran as any other firebase based swift application. 
