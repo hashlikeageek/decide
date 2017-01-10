@@ -32,33 +32,46 @@ class signInViewController : UIViewController,UITextFieldDelegate
     @IBAction func signIn(_ sender: Any) {
         let email = self.ema.text
         let passowrd = self.pass.text
+       
+        if Reachability.sharedInstance().isInternetAvailable() {
         
-        if email != "" && passowrd != ""
-        {
-            FIRAuth.auth()?.signIn(withEmail: email!, password: passowrd!, completion: { (UID, errors) in
-                if errors == nil
-                {
-                    print("yahoo done")
-                    self.error.setTitle("Sign In Successful", for: .normal)
-                    self.error.isHidden = false
-                    
-                    self.performSegue(withIdentifier: "signInHome", sender: self)
-                }
-                else{
-                    self.error.setTitle("Error Occured ", for: .normal)
-                    self.error.isHidden = false
-                }
-                
-            })
-        }
-        else
+            if email != "" && passowrd != ""
         {
             
-            error.setTitle("Invalid Entries", for: .normal)
-            error.isHidden = false
-        }
-        
+            
+                FIRAuth.auth()?.signIn(withEmail: email!, password: passowrd!, completion: { (UID, errors) in
+                    if errors == nil
+                    {
+                        print("yahoo done")
+                        self.error.setTitle("Sign In Successful", for: .normal)
+                        self.error.isHidden = false
+                        
+                        self.performSegue(withIdentifier: "signInHome", sender: self)
+                    }
+                    else{
+                        self.error.setTitle("Error Occured ", for: .normal)
+                        self.error.isHidden = false
+                    }
+                    
+                })
+            }
+            else
+            {
+                
+                error.setTitle("Invalid Entries", for: .normal)
+                error.isHidden = false
+            }
+            
 
+            
+        }
+        else {
+            
+            error.setTitle("No Internet Connection", for: .normal)
+            error.isHidden = false
+
+            }
+           
     
     }
    
