@@ -46,7 +46,7 @@ class signUpViewController : UIViewController,UITextFieldDelegate
                 self.error.setTitle("Sign Up Successful", for: .normal)
                 self.error.isHidden = false
                 self.activityIndicator.stopAnimating()
-                self.performSegue(withIdentifier: "signIn", sender: self)
+                self.dismiss(animated: true, completion: nil)
                 
             })
             }

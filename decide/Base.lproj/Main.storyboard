@@ -191,7 +191,7 @@
                         <outlet property="em" destination="FZ7-Bk-PUY" id="8It-3L-R49"/>
                         <outlet property="error" destination="RLC-Zo-qbN" id="D5Z-pC-T0s"/>
                         <outlet property="pass" destination="GtA-VI-Zk3" id="dsG-Fr-ePb"/>
-                        <segue destination="56Q-RU-yvY" kind="show" identifier="signIn" id="UyP-XA-752"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="welcome" id="YVG-x5-LMj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7T8-Od-wmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -439,7 +439,7 @@
                         <outlet property="nameLabel" destination="ZSY-qZ-Gys" id="g9y-2M-f9w"/>
                         <outlet property="profileImageView" destination="thn-FF-VAf" id="wUu-yD-Jc6"/>
                         <segue destination="Cvd-po-bKT" kind="unwind" identifier="unwindFromSignIn" unwindAction="unwindFromSignInSegue:" id="vgG-Df-2P0"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="welcome" id="Acc-Xq-98J"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="welcome" id="K1E-lT-Zhf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pci-6g-acD" sceneMemberID="firstResponder"/>
@@ -500,6 +500,6 @@
         <image name="welcomeScreen " width="375" height="620"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UyP-XA-752"/>
+        <segue reference="K1E-lT-Zhf"/>
     </inferredMetricsTieBreakers>
 </document>
