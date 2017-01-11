@@ -150,6 +150,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hkt-i8-Z2D">
+                                <rect key="frame" x="178" y="219" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -162,7 +165,9 @@
                             <constraint firstItem="KY1-7z-ngd" firstAttribute="leading" secondItem="xP8-xR-Lp5" secondAttribute="leadingMargin" constant="-16" id="CY9-Yo-v5I"/>
                             <constraint firstItem="wpz-dk-MuM" firstAttribute="centerX" secondItem="9yS-uR-ePQ" secondAttribute="centerX" id="Fdb-tc-kp9"/>
                             <constraint firstItem="RLC-Zo-qbN" firstAttribute="top" secondItem="WZp-36-bpX" secondAttribute="bottom" constant="8" symbolic="YES" id="G5A-AS-61t"/>
+                            <constraint firstItem="hkt-i8-Z2D" firstAttribute="top" secondItem="wpz-dk-MuM" secondAttribute="bottom" constant="20" id="Gyo-IZ-Jd7"/>
                             <constraint firstItem="l78-Lv-GcG" firstAttribute="centerX" secondItem="0r6-LO-2RT" secondAttribute="centerX" id="I4z-Ua-nuu"/>
+                            <constraint firstItem="hkt-i8-Z2D" firstAttribute="centerX" secondItem="wpz-dk-MuM" secondAttribute="centerX" id="IIB-JG-9Uc"/>
                             <constraint firstItem="GtA-VI-Zk3" firstAttribute="top" secondItem="0r6-LO-2RT" secondAttribute="bottom" constant="24" id="Kly-cg-5WR"/>
                             <constraint firstItem="FZ7-Bk-PUY" firstAttribute="centerX" secondItem="xP8-xR-Lp5" secondAttribute="centerX" id="NdW-Ck-UTj"/>
                             <constraint firstItem="oXn-gv-FaV" firstAttribute="top" secondItem="KY1-7z-ngd" secondAttribute="bottom" id="OSD-Ww-cdt"/>
@@ -182,6 +187,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="hkt-i8-Z2D" id="cf8-ob-A6i"/>
                         <outlet property="em" destination="FZ7-Bk-PUY" id="8It-3L-R49"/>
                         <outlet property="error" destination="RLC-Zo-qbN" id="D5Z-pC-T0s"/>
                         <outlet property="pass" destination="GtA-VI-Zk3" id="dsG-Fr-ePb"/>
@@ -259,11 +265,15 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BU6-9o-tCK">
+                                <rect key="frame" x="178" y="225" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="n82-rG-7fj" firstAttribute="top" secondItem="aLR-1r-R5r" secondAttribute="bottom" constant="64" id="1oo-A9-3Jw"/>
                             <constraint firstItem="F4K-SZ-Tuf" firstAttribute="top" secondItem="K5k-qC-kb1" secondAttribute="bottom" constant="-20" id="2gQ-yq-Qw6"/>
+                            <constraint firstItem="BU6-9o-tCK" firstAttribute="top" secondItem="aLR-1r-R5r" secondAttribute="bottom" constant="26" id="3cb-Rv-q2R"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F4K-SZ-Tuf" secondAttribute="trailing" constant="-16" id="6VD-Ct-wEx"/>
                             <constraint firstItem="n82-rG-7fj" firstAttribute="centerX" secondItem="orE-Az-dDu" secondAttribute="centerX" id="85Y-Zb-xbU"/>
                             <constraint firstItem="WaI-e1-eU6" firstAttribute="top" secondItem="n82-rG-7fj" secondAttribute="bottom" constant="24" id="BXA-kT-8Yf"/>
@@ -273,6 +283,7 @@
                             <constraint firstItem="aM4-vb-ud2" firstAttribute="top" secondItem="aLR-1r-R5r" secondAttribute="bottom" constant="65" id="I31-1Y-eZy"/>
                             <constraint firstItem="YzK-za-M1o" firstAttribute="centerX" secondItem="uRs-ea-2q9" secondAttribute="centerX" id="J2j-o4-svB"/>
                             <constraint firstItem="dIF-ie-iCS" firstAttribute="top" secondItem="F4K-SZ-Tuf" secondAttribute="bottom" id="JMh-jU-UCS"/>
+                            <constraint firstItem="BU6-9o-tCK" firstAttribute="centerX" secondItem="aLR-1r-R5r" secondAttribute="centerX" id="NBK-ug-0z4"/>
                             <constraint firstItem="F4K-SZ-Tuf" firstAttribute="leading" secondItem="orE-Az-dDu" secondAttribute="leadingMargin" constant="-16" id="OlP-n6-u27"/>
                             <constraint firstItem="NwI-nM-qPN" firstAttribute="top" secondItem="QRF-f9-KAE" secondAttribute="bottom" constant="52" id="Pty-U7-YcJ"/>
                             <constraint firstItem="aLR-1r-R5r" firstAttribute="centerX" secondItem="F4K-SZ-Tuf" secondAttribute="centerX" id="QqF-p7-6XX"/>
@@ -293,6 +304,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="BU6-9o-tCK" id="ZdZ-7E-nzG"/>
                         <outlet property="ema" destination="aM4-vb-ud2" id="seU-dB-Zam"/>
                         <outlet property="error" destination="YzK-za-M1o" id="O3O-XW-o3L"/>
                         <outlet property="pass" destination="WaI-e1-eU6" id="uCc-nd-Wk3"/>
@@ -316,7 +328,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gwC-ZG-zi6" id="CFY-jj-tKj">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>

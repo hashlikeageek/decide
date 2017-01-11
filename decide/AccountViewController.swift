@@ -31,7 +31,9 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             } catch let signOutError as NSError {
                 print ("Error signing out: %@", signOutError)
             }
-            self.performSegue(withIdentifier: "welcome", sender: self)
+            self.dismiss(animated: true, completion: nil)
+            
+
         }))
         self.present(alert, animated: true, completion: {() -> Void in })
     }
@@ -91,11 +93,14 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         
         let storageRef = FIRStorage.storage().reference().child("shared/\(user.uid)/profile-400x400.png")
         let metadata = FIRStorageMetadata(dictionary: ["contentType": "image/png"])
+        
+        activityIndicator.startAnimating()
         let uploadTask = storageRef.put(imageData, metadata: metadata) { (metadata, error) in
             guard metadata != nil else {
                 print("Error uploading image to Firebase Storage: \(error?.localizedDescription)")
                 return
             }
+             self.activityIndicator.stopAnimating()
            
             FIRAnalytics.logEvent(withName: "User-NewProfileImage", parameters: nil)
 
