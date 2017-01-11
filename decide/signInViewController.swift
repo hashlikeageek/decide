@@ -18,11 +18,13 @@ class signInViewController : UIViewController,UITextFieldDelegate
     @IBOutlet weak var pass: UITextField!
     @IBOutlet weak var error: UIButton!
   
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         error.isHidden = true
         ema.delegate = self
         pass.delegate = self
+        activityIndicator.isHidden = true
     }
     
     @IBAction func goBackHome(_ sender: Any) {
@@ -32,7 +34,10 @@ class signInViewController : UIViewController,UITextFieldDelegate
     @IBAction func signIn(_ sender: Any) {
         let email = self.ema.text
         let passowrd = self.pass.text
-       
+       activityIndicator.isHidden = false
+        
+        activityIndicator.startAnimating()
+        
         if Reachability.sharedInstance().isInternetAvailable() {
         
             if email != "" && passowrd != ""
@@ -45,12 +50,16 @@ class signInViewController : UIViewController,UITextFieldDelegate
                         print("yahoo done")
                         self.error.setTitle("Sign In Successful", for: .normal)
                         self.error.isHidden = false
-                        
+                        self.activityIndicator.stopAnimating()
                         self.performSegue(withIdentifier: "signInHome", sender: self)
                     }
                     else{
                         self.error.setTitle("Error Occured ", for: .normal)
                         self.error.isHidden = false
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.isHidden = true
+
+
                     }
                     
                 })
@@ -60,6 +69,9 @@ class signInViewController : UIViewController,UITextFieldDelegate
                 
                 error.setTitle("Invalid Entries", for: .normal)
                 error.isHidden = false
+                self.activityIndicator.stopAnimating()
+                activityIndicator.isHidden = true
+
             }
             
 
@@ -69,6 +81,13 @@ class signInViewController : UIViewController,UITextFieldDelegate
             
             error.setTitle("No Internet Connection", for: .normal)
             error.isHidden = false
+            self.activityIndicator.stopAnimating()
+            activityIndicator.isHidden = true
+
+            let alert = UIAlertController(title: "Connection Error", message: "Please Try Again", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: {(action) in
+            }))
+            self.present(alert, animated: true, completion: {() -> Void in })
 
             }
            
