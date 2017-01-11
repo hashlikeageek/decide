@@ -31,7 +31,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             } catch let signOutError as NSError {
                 print ("Error signing out: %@", signOutError)
             }
-            self.dismiss(animated: true, completion: nil)
+            self.performSegue(withIdentifier: "welcome", sender: self)
             
 
         }))
@@ -41,6 +41,8 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     
     @IBAction func changePictureButtonTapped(_ sender: UIButton) {
+        
+    if Reachability.sharedInstance().isInternetAvailable() {
         let alert = UIAlertController(title: "Change Profile Picture", message: nil, preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Remove Profile Picture", style: .destructive, handler: {(action) in
             self.profileImageView.image = nil
@@ -48,9 +50,16 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             let storageRef = FIRStorage.storage().reference()
             storageRef.child("shared/\(user.uid)/profile-400x400.png").delete {(error) in
                 print("Error occurred deleting profile image from Firebase Storage: \(error?.localizedDescription)")
+                let alert = UIAlertController(title: "Error", message: "\(error?.localizedDescription)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: {(action) in
+                }))
+                self.present(alert, animated: true, completion: {() -> Void in })
+                  self.activityIndicator.stopAnimating()
+
             }
             storageRef.child("shared/\(user.uid)/profile-80x80.png").delete {(error) in
                 print("Error occurred deleting profile thumbnail image from Firebase Storage: \(error?.localizedDescription)")
+                
             }
         }))
         alert.addAction(UIAlertAction(title: "Choose from Library", style: .default, handler: {(action) in
@@ -65,6 +74,15 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: {(action) in
         }))
         self.present(alert, animated: true, completion: {() -> Void in })
+        }
+        else
+    {
+        let alert = UIAlertController(title: "Connection Error", message: "Please Try Again", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: {(action) in
+        }))
+        self.present(alert, animated: true, completion: {() -> Void in })
+
+        }
     }
     
     @IBOutlet weak var profileImageView: UIImageView!
@@ -76,6 +94,9 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     
       func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+
         guard let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage,
               let user = FIRAuth.auth()?.currentUser else {
             picker.dismiss(animated: true, completion: nil)
@@ -95,24 +116,58 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
         let metadata = FIRStorageMetadata(dictionary: ["contentType": "image/png"])
         
         activityIndicator.startAnimating()
+        
+
         let uploadTask = storageRef.put(imageData, metadata: metadata) { (metadata, error) in
             guard metadata != nil else {
                 print("Error uploading image to Firebase Storage: \(error?.localizedDescription)")
+                picker.dismiss(animated: true, completion: nil)
+                self.activityIndicator.stopAnimating()
+                
+                let alert = UIAlertController(title: "Connection Error", message: "Please Try Again", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: {(action) in
+                }))
+                self.present(alert, animated: true, completion: {() -> Void in })
+
+                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 return
             }
-             self.activityIndicator.stopAnimating()
-           
+            
+            picker.navigationItem.leftBarButtonItem?.customView = self.activityIndicator
+            self.activityIndicator.startAnimating()
+            
+            if Reachability.sharedInstance().isInternetAvailable(){
+                picker.dismiss(animated: true, completion: nil)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+  
+            }
+            else
+            {
+            picker.dismiss(animated: true, completion: nil)
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+            
+            if Reachability.sharedInstance().isInternetAvailable() {
             FIRAnalytics.logEvent(withName: "User-NewProfileImage", parameters: nil)
 
                        guard let image = pickedImage.scaleAndCrop(withAspect: true, to: 40),
                 let imageData = UIImagePNGRepresentation(image) else {
                     return
             }
+            
             let storageRef = FIRStorage.storage().reference().child("shared/\(user.uid)/profile-80x80.png")
             storageRef.put(imageData, metadata: FIRStorageMetadata(dictionary: ["contentType": "image/png"]))
+            self.activityIndicator.stopAnimating()
+    
         }
-            
-        picker.dismiss(animated: true, completion: nil)
+        
+        else {
+            print("Error dakjfblskblf")
+        }
+        }
+        
+        
+       
     }
     
     
@@ -147,6 +202,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
             
             if profileImageView.image == nil {
                
+                 if Reachability.sharedInstance().isInternetAvailable() {
                 activityIndicator.startAnimating()
                 let imageStorageRef = FIRStorage.storage().reference().child("shared/\(user.uid)/profile-400x400.png")
                 let downloadTask = imageStorageRef.data(withMaxSize: 2 * 1024 * 1024) { data, error in
@@ -155,6 +211,15 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
                     if error == nil, let data = data {
                         self.profileImageView.image = UIImage(data: data)
                     }
+                }
+                }
+                else
+                 {
+                    let alert = UIAlertController(title: "Connection Error", message: "Could Not load Image", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: {(action) in
+                    }))
+                    self.present(alert, animated: true, completion: {() -> Void in })
+
                 }
                          }
         }
@@ -166,5 +231,7 @@ class AccountViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
 }
 
